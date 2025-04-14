@@ -20,26 +20,29 @@ class reservation {
  public $bookedAt;
 
  public $cleaningOption;
-}
 
+ // contient toute la structure de la reservation. je tape le code une fois et je l'utilise plusieurs fois.
+public function_construct() {
 
- $reservation = new reservation();
 
  //récupération de la valeur.
- $reservation->name = "Laurence";
- $reservation->place= "Château de Chambord";
- $reservation->startDate = new DateTime("25.04.14");
- $reservation->endDate = new DateTime("25.05.18");
- $reservation->cleaningOption = true;
+ $this->name = "Laurence";
+ $this->place= "Château de Chambord";
+ $this->startDate = new DateTime("25.04.14");
+ $this->endDate = new DateTime("25.05.18");
+ $this->cleaningOption = true;
 
- $reservation->nightPrice = 1000;
+ $this->nightPrice = 1000;
  
  // valeurs calculées automatiquement
- $totalPrice = (($reservation->endDate->getTimestamp() - $reservation->startDate->getTimestamp()) / (3600 * 24) * $reservation->nightPrice) + 5000;
+ $totalPrice = (($this->endDate->getTimestamp() - $this->startDate->getTimestamp()) / (3600 * 24) * $this->nightPrice) + 5000;
  
- $reservation->totalPrice = $totalPrice;
- $reservation->bookedAt = new DateTime();
- $reservation->status = "CART";
- 
- 
+ $this->totalPrice = $totalPrice;
+ $this->bookedAt = new DateTime();
+ $this->status = "CART";
+}
+
+}
+$reservation = new Reservation();
+
  var_dump($reservation); 
