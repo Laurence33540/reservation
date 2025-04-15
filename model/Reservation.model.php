@@ -23,6 +23,13 @@ class reservation {
 
     public $cancelAt;
 
+    public $paidAt;
+
+    public $commentAt;
+
+    public $comment;
+
+
     // contient toute la structure de la reservation. je tape le code une fois et je l'utilise plusieurs fois.
     public function _construct($name, $place, $startDate, $endDate, $cleaningOption) {
 
@@ -52,30 +59,22 @@ class reservation {
            $this->cancelAt=new DateTime;
         }
     }
+
+    // méthode pay pour la reseravation et stocker dans une propriete dans laquelle le paiement à été fait
+    public function pay(){
+        if ($this ->status === "cart") {
+            $this->paidAt= new DateTime;
+            $this ->status = "paid";
+        }
+    }
+
+    // méthode leavecomment stockée dans une propriete "comment" et stocker dans une propriete à laquelle la date à été commenter
+    public function leaveComment($userComment) {
+        if($this->status === "paid") {
+            $this->comment= $userComment;
+            $this ->commentAt= "comment";
+        }
+    }
+        
+        
 }
-
-//j'ajoute des paramètres à la classe reservation
-$name = "Laurence";
-$place = "château deChambord";
-$startDate = new DateTime('2025-04-04');
-$endDate= new DateTime('2025-04-05');
-$cleaningOption= false;
-
-
-//Je crée l'instance de classe avec les propriétés en faisant une nouvelle réservation
-$reservation = new Reservation("$name", "$place","$startDate","$endDate","$cleaningOption");
-
-
-$reservation->cancel();  
-
-// méthode pay pour la reseravation et stocker dans une propriete dans laquelle le paiement à été fait
-public function reservation(){
-    if ($this ->status === "paid")
-        $this ->status === new DateTime();
-}
-// méthode leavecomment stockée dans une propriete "comment" et stocker dans une propriete à laquelle la date à été commenter
-
- public function leavecomment() {
-    if($this->status === commenttext)
-       $this -> status === new DateTime();
- }
