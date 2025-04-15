@@ -33,7 +33,7 @@
 
 <label>date de début
 <input type="date" name="start-Date">
-</label>
+</label> 
 
 <label>date de fin
   <input type="date" name="end-Date">
@@ -45,9 +45,22 @@
 
 <button type="submit">Créer ma réservation</button>
 
-
-
 </form>
+
+<!--vérication que la reservation est pas vide-->
+<?php if (!is_null($reservation)) { ?>
+
+<!-- je récapitule la réservation pour l'utilisateur-->
+<div>
+  <p>recap de la réservation</p>
+  <p>name<?php echo $reservation->name; ?></p>
+  <p>place<?php echo $reservation->place; ?></p>
+  <p>dates<?php echo $reservation->startDate->format(y,m,d); ?> / <?php echo $reservation->endDate->format(y,m,d); ?></p>
+  <p>totalPrice<?php echo $reservation->totalPrice; ?></p>
+  <p>cleaningOption<?php echo $reservation->cleaningOption ? "oui" : "non"; ?></p>
+</div>
+
+<?php } ?>
 
     </main>
 

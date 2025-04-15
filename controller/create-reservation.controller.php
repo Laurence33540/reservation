@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Je crée une classe réservation
     $reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
 
-    //je reçois un message de confirmation pour validé le prix total de la réservation.
+    //qui affiche le prix de la réservation : message confirmation pour validé le prix total de la réservation.
     $message = "Votre réservation est confirmée, au prix de " . $reservation->totalPrice;
 }
 
