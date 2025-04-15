@@ -52,16 +52,16 @@
   <p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
 	<?php } ?>
 
-  <?php if (!is_null($reservation)) { ?>
+  <?php if (!is_null($reservationForUser)) { ?>
     
 <!-- je récapitule la réservation pour l'utilisateur-->
 <div>
-  <p>recap de la réservation</p>
-  <p>name<?php echo $reservation->name; ?></p>
-  <p>place<?php echo $reservation->place; ?></p>
-  <p>dates<?php echo $reservation->startDate->format('d,m,y'); ?> / <?php echo $reservation->endDate->format('d,m,y'); ?></p>
-  <p>totalPrice<?php echo $reservation->totalPrice; ?></p>
-  <p>cleaningOption<?php echo $reservation->cleaningOption ? "oui" : "non"; ?></p>
+  <p>recap de la réservationForUser</p>
+  <p>name<?php echo $reservationForUser->name; ?></p>
+  <p>place<?php echo $reservationForUser->place; ?></p>
+  <p>dates<?php echo $reservationForUser->startDate->format('d,m,y'); ?> / <?php echo $reservationForUser->endDate->format('d,m,y'); ?></p>
+  <p>totalPrice<?php echo $reservationForUser->totalPrice; ?></p>
+  <p>cleaningOption<?php echo $reservationForUser->cleaningOption ? "oui" : "non"; ?></p>
 </div>
 
 <?php } ?>

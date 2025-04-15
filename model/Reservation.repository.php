@@ -14,6 +14,9 @@ function findreservationForUser() {
 
     session_start();
 
-    return $_SESSION["reservation"];
-
+if (array_key_exists('reservation', $_SESSION)) {
+   return $_SESSION['reservation'];
+}else{
+    return null;
+}
 }

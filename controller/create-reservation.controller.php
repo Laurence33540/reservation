@@ -5,7 +5,6 @@ require_once('../config.php');
 require_once('../model/Reservation.model.php');
 require_once('../model/reservation.repository.php');
 
-$reservation= null;
 $error =null;
 
 //je vérifie si le Formulaire a été envoyer
@@ -34,5 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 	}	
 
 }
-   
+
+//trouver la réservation de l'utilisateur
+$reservationForUser = findReservationForUser();
+
 require_once('../view/create-reservation.view.php');
