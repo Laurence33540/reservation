@@ -48,14 +48,18 @@
 </form>
 
 <!--vérication que la reservation est pas vide-->
-<?php if (!is_null($reservation)) { ?>
+<?php if (!is_null($error)) { ?>
+  <p>La réservation n'a pas été effectuée : <?php echo $error; ?></p>
+	<?php } ?>
 
+  <?php if (!is_null($reservation)) { ?>
+    
 <!-- je récapitule la réservation pour l'utilisateur-->
 <div>
   <p>recap de la réservation</p>
   <p>name<?php echo $reservation->name; ?></p>
   <p>place<?php echo $reservation->place; ?></p>
-  <p>dates<?php echo $reservation->startDate->format(y,m,d); ?> / <?php echo $reservation->endDate->format(y,m,d); ?></p>
+  <p>dates<?php echo $reservation->startDate->format('d,m,y'); ?> / <?php echo $reservation->endDate->format('d,m,y'); ?></p>
   <p>totalPrice<?php echo $reservation->totalPrice; ?></p>
   <p>cleaningOption<?php echo $reservation->cleaningOption ? "oui" : "non"; ?></p>
 </div>

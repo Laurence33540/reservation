@@ -33,6 +33,11 @@ class reservation {
     // contient toute la structure de la reservation. je tape le code une fois et je l'utilise plusieurs fois.
     public function _construct($name, $place, $startDate, $endDate, $cleaningOption) {
 
+    // le nom doit dépasser plus de deux caractères
+    if (strlen($name) < 2) {
+        throw new Exception ('Le nom doit comporter plus de caractères');
+
+    }
 
         //récupération de la valeur.
         $this->name = "Laurence";
@@ -56,7 +61,7 @@ class reservation {
     public function cancel() {
         if($this->status==="cart") {
            $this->status="CANCELED";
-           $this->cancelAt=new DateTime;
+           $this->cancelAt=new DateTime();
         }
     }
 

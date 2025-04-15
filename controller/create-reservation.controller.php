@@ -3,6 +3,10 @@
 require_once('../config.php');
 
 require_once('../model/Reservation.model.php');
+require_once('../model/reservation.repository.php');
+
+$reservation= null;
+$error =null;
 
 //je vérifie si le Formulaire a été envoyer
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,11 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $cleaningOption=false;
     }
 
-    // Je crée une classe réservation
-    $reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
+    try {
+		// je créé une réservation : une instance de classe, en lui envoyant les données attendues
+		$reservation = new Reservation($name, $place, $startDate, $endDate, $cleaningOption);
+        persistReservation($reservation);
+        
+	} catch(Exception $e) {
+		$error = $e->getMessage();
+	}	
 
-    //qui affiche le prix de la réservation : message confirmation pour validé le prix total de la réservation.
-    $message = "Votre réservation est confirmée, au prix de " . $reservation->totalPrice;
 }
-
+   
 require_once('../view/create-reservation.view.php');
