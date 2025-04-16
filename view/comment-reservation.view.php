@@ -15,7 +15,7 @@
         <form method = POST>
         
         <button type="text">Laissez votre commentaire</button>
-
+        <button>type="submit">Votre commentaire est envoyé</button>
     </form>
 
 <!--méthode leavecomment stockée dans une propriete "comment" et stocker dans une propriete à laquelle la date à été commenter-->

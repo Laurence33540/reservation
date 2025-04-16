@@ -10,4 +10,13 @@ $error =null;
 // je la stocke dans la variable
 $reservationForUser=findreservationForUser();
 
+//je vérifie si le Formulaire a été envoyer et je sauvegarde la réservation
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+   
+    $reservation->comment();
+    persistReservation($reservation);
+    $_session["reservation"] = $reservation;
+}
+
+
 require_once ('../view/comment-reservation.view.php');
