@@ -12,11 +12,10 @@
 
         <h1>votre réservation est payée</h1>
 
-        <form method = POST>
-
         <form method=POST>
     
         <button type="submit">annuler une réservation</button>
+        
     </form>
 
     <p>Ma réservation : </p>
