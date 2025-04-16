@@ -10,4 +10,4 @@ require_once('../model/Reservation.repository.php');// inclure les données de r
 $reservationForUser=findreservationForUser();
 
 
-require_once ('../view/cancel-reservation.view.php');// inclure la vue de l'annulation de la réservation
+require_once ('../view/cancel-reservation.view.php'); // inclure la vue de l'annulation de la réservation.
